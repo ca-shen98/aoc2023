@@ -1,4 +1,5 @@
 // Databricks notebook source
+// https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm
 case class DigitParserTrieNode(node: Either[Map[Char, DigitParserTrieNode], Int])
 val fwdTrieParser = DigitParserTrieNode(Left(Map(
   'o' -> DigitParserTrieNode(Left(Map(
