@@ -20,7 +20,7 @@ val colorIdxs = Seq("red", "green", "blue")
 
 // COMMAND ----------
 
-input2.foldLeft(0L){ case (minPowerSum, game) => minPowerSum + (
+input2.foldLeft(0L) { case (minPowerSum, game) => minPowerSum + (
   game.foldLeft(Seq(0, 0, 0)) { case (mins, round) =>
     mins.zipWithIndex.map { case (prev, idx) =>
       Math.max(prev, round.getOrElse(colorIdxs(idx), 0))
