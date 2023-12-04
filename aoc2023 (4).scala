@@ -1,8 +1,11 @@
 // input.map{ case (winning, candidates) =>
 //   winning.intersect(candidates).size
-// }.zipWithIndex.foldLeft(input.map(_ => 1L)) { case (copies, (winners, idx)) =>
-//   println(copies)
-//   copies.slice(0, idx + 1) ++ copies.slice(idx + 1, idx + winners).map(a => a + copies(idx)) ++ copies.slice(idx + winners, copies.length)
+// }.foldLeft[Double](0) { case (points, winners) =>
+//   points + (if (winners > 0) {
+//     Math.pow(2, winners - 1)
+//   } else {
+//     0
+//   }
 // }.sum
 
 input.foldLeft[(Long, Seq[Long])]((0, Seq.empty)) { case ((numExploredExtras, upcomingExtras), (winning, candidates)) =>
